@@ -1,16 +1,61 @@
-# React + Vite
+# Agenda ADSO v5 📒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto desarrollado en la **Clase 7** del curso ReactJS — Programa ADSO SENA.
 
-Currently, two official plugins are available:
+## ¿Qué hace?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplicación de gestión de contactos conectada a una API REST local usando JSON Server. Permite crear, listar y eliminar contactos de forma dinámica sin recargar la página.
 
-## React Compiler
+## Tecnologías usadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ⚛️ React + Vite
+- 🎨 Tailwind CSS
+- 📡 JSON Server
+- 🔗 Fetch API (GET, POST, DELETE)
 
-## Expanding the ESLint configuration
+## Estructura del proyecto
+```
+src/
+├── api.js                        → Peticiones HTTP al servidor
+├── App.jsx                       → Componente principal
+├── index.css                     → Estilos globales Tailwind
+├── main.jsx                      → Punto de entrada
+└── components/
+    ├── FormularioContacto.jsx    → Formulario para agregar contactos
+    └── ContactoCard.jsx          → Tarjeta individual de contacto
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Cómo correrlo
+
+**1. Instalar dependencias:**
+```bash
+npm install
+```
+
+**2. Terminal 1 — Iniciar JSON Server:**
+```bash
+npx json-server --watch db.json --port 3002
+```
+
+**3. Terminal 2 — Iniciar React:**
+```bash
+npm run dev
+```
+
+**4. Abrir en el navegador:**
+```
+http://localhost:5173
+```
+
+## Funcionalidades
+
+- ✅ Listar contactos desde la API (GET)
+- ✅ Agregar nuevo contacto (POST)
+- ✅ Eliminar contacto (DELETE)
+- ✅ Campo empresa (Mini Reto de la clase)
+- ✅ Manejo de estados: cargando, error y datos
+
+## Autor
+
+Andres Felipe Alvarez - Sebastian Monsalve Ramos
+Programa ADSO — SENA 2026
