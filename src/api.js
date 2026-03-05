@@ -3,7 +3,8 @@ const API = "http://localhost:3002/contactos";
 // GET: listar contactos
 export async function listarContactos() {
   const res = await fetch(API);
-  if (!res.ok) throw new Error("Error al listar contactos");
+  if (!res.ok) throw new Error
+  ("Error al listar contactos");
   return res.json();
 }
 
