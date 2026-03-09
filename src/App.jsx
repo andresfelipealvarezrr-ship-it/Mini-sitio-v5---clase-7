@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { listarContactos, crearContacto, eliminarContactoPorId } from "./api.js";
 import FormularioContacto from "./Components/FormularioContacto";
+import { APP_INFO } from "./config.js";
 import ContactoCard from "./Components/ContactoCard";
 
 export default function App() {
@@ -47,13 +48,13 @@ export default function App() {
     <main className="min-h-screen bg-gray-50">
       <header className="max-w-6xl mx-auto px-6 pt-8 pb-2">
         <p className="text-sm font-semibold text-gray-400 tracking-widest uppercase">
-          Programa ADSO
+          Desarrollo web ReactJS FICHA {APP_INFO.ficha}
         </p>
         <h1 className="text-4xl md:text-5xl font-black text-gray-900 mt-2">
-          Agenda ADSO <span className="text-purple-600">v5</span>
+          {APP_INFO.titulo}
         </h1>
         <p className="text-gray-500 mt-1">
-          Gestión de contactos conectada a una API local con JSON Server.
+          {APP_INFO.subtitulo}
         </p>
       </header>
 
