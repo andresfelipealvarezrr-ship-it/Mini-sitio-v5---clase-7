@@ -9,15 +9,40 @@ export default function FormularioContacto({ onAgregar }) {
     empresa: "",
   });
 
+  const [errores, setErrores] = useState({});
+
+  const [enviando, setEnviando] = useState(false);
+
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = (e) => {
+  const validarFormulario = () => {
+    const nuevosErrores = {};
+    if (!form.nombre.trim()) nuevosErrores.nombre = "El nombre es obligatorio.";
+    if (!form.telefono.trim()) nuevosErrores.telefono = "El teléfono es obligatorio.";
+    if (!form.correo.trim()) {
+      nuevosErrores.correo = "El correo es obligatorio";
+    } else if (!form.correo.includes("@")) {
+      nuevosErrores.correo = "El correo debe incluir @";
+    }
+
+    setErrores(nuevosErrores);
+    return Object.keys(nuevosErrores).length === 0;
+  };
+
+  const onSubmit  = async (e) => {
     e.preventDefault();
-    if (!form.nombre || !form.telefono || !form.correo) return;
-    onAgregar(form);
-    setForm({ nombre: "", telefono: "", correo: "", etiqueta: "", empresa: "" });
+    if (!validarFormulario()) return;
+
+    try{
+      await onAgregar(form);
+      setForm({ nombre: "", telefono: "", correo: "", etiqueta: "", empresa: "" });
+      setErrores({});      
+    }catch(error){
+      alert("Error al agregar contacto: " + error.message);
+    }
+    setEnviando(false);
   };
 
   return (
@@ -34,6 +59,8 @@ export default function FormularioContacto({ onAgregar }) {
             value={form.nombre}
             onChange={onChange}
           />
+          {errores.nombre && <p className="text-red-500 text-sm mt-1">{errores.nombre}</p>}
+
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Teléfono *</label>
@@ -44,6 +71,7 @@ export default function FormularioContacto({ onAgregar }) {
             value={form.telefono}
             onChange={onChange}
           />
+          {errores.telefono && <p className="text-red-500 text-sm mt-1">{errores.telefono}</p>}
         </div>
       </div>
 
@@ -57,6 +85,7 @@ export default function FormularioContacto({ onAgregar }) {
             value={form.correo}
             onChange={onChange}
           />
+          {errores.correo && <p className="text-red-500 text-sm mt-1">{errores.correo}</p>}
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Empresa (opcional)</label>
@@ -67,6 +96,7 @@ export default function FormularioContacto({ onAgregar }) {
             value={form.empresa}
             onChange={onChange}
           />
+        
         </div>
       </div>
 
@@ -79,13 +109,14 @@ export default function FormularioContacto({ onAgregar }) {
           value={form.etiqueta}
           onChange={onChange}
         />
+        {errores.etiqueta && <p className="text-red-500 text-sm mt-1">{errores.etiqueta}</p>}
       </div>
 
       <button
         type="submit"
         className="w-full md:w-auto bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-sm transition-colors"
       >
-        + Agregar contacto
+        {enviando ? "Agregando..." : "Agregar contacto"}
       </button>
     </form>
   );
