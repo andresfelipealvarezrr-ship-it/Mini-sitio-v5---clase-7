@@ -22,6 +22,22 @@
       "correo": "jacinto@gmail.com",
       "etiqueta": "familiar",
       "empresa": ""
+    },
+    {
+      "id": "bc59",
+      "nombre": "hernesto perez",
+      "telefono": "3126549870",
+      "correo": "andreaq@.sena.edu.co",
+      "etiqueta": "cliente",
+      "empresa": "SENA"
+    },
+    {
+      "id": "91c3",
+      "nombre": "andrea",
+      "telefono": "1234567890",
+      "correo": "andrea.@sena.edu.co",
+      "etiqueta": "Aprendiz",
+      "empresa": "SENA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
