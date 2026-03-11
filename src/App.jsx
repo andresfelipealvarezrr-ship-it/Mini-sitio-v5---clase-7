@@ -8,6 +8,19 @@ export default function App() {
   const [contactos, setContactos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
+  const [buscador, setBuscador] = useState("");
+  const [ordenAscendente, setOrdenAscendente] = useState(true);
+
+
+  const contactosFiltrados = contactos.filter((c) =>
+    c.nombre.toLowerCase().includes(buscador.toLowerCase())).sort((a, b) => {
+      if (ordenAscendente) {
+        return a.nombre.localeCompare(b.nombre);
+      } else {
+        return b.nombre.localeCompare(a.nombre);
+      }
+    });
+
 
   useEffect(() => {
     async function cargarContactos() {
@@ -23,7 +36,7 @@ export default function App() {
     }
     cargarContactos();
   }, []);
-
+ 
   const agregarContacto = async (nuevo) => {
     try {
       const creado = await crearContacto(nuevo);
@@ -70,6 +83,21 @@ export default function App() {
           </div>
         )}
 
+        <input
+          type="text"
+          placeholder="Buscar contactos..."
+          value={buscador}
+          onChange={(e) => setBuscador(e.target.value)}
+          className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          onClick={() => setOrdenAscendente(!ordenAscendente)}
+          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          {ordenAscendente ? "Ordenar Descendente" : "Ordenar Ascendente"}
+        </button>
+
         <FormularioContacto onAgregar={agregarContacto} />
 
         <div className="space-y-4">
@@ -78,7 +106,7 @@ export default function App() {
               No hay contactos aún. Agrega el primero usando el formulario.
             </p>
           )}
-          {contactos.map((c) => (
+          {contactosFiltrados.map((c) => (
             <ContactoCard
               key={c.id}
               {...c}

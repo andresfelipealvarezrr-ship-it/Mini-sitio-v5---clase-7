@@ -22,6 +22,14 @@
       "correo": "jacinto@gmail.com",
       "etiqueta": "familiar",
       "empresa": ""
+    },
+    {
+      "id": "4cb2",
+      "nombre": "andrea",
+      "telefono": "1234567890",
+      "correo": "penelope69@gmail.com",
+      "etiqueta": "instructora",
+      "empresa": "SENA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
