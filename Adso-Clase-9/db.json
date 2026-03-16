@@ -1,0 +1,33 @@
+{
+  "contactos": [
+    {
+      "nombre": "Gustavito",
+      "telefono": "3217532037",
+      "correo": "Gustavito@gmail.com",
+      "etiqueta": "profe",
+      "id": "1d3f"
+    },
+    {
+      "nombre": "andresito",
+      "telefono": "3126549870",
+      "correo": "andreaguti@sena.edu.co",
+      "etiqueta": "Aprendiz",
+      "id": "8e7b"
+    },
+    {
+      "nombre": "jacintoo",
+      "telefono": "1234567890",
+      "correo": "jacintoo@gmail.com",
+      "etiqueta": "familiar",
+      "id": "2718"
+    },
+    {
+      "id": "4adc",
+      "nombre": "Ana",
+      "telefono": "2793012392398",
+      "correo": "Ana@gmail.com",
+      "etiqueta": "Familia"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
