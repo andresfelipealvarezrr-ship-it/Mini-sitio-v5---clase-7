@@ -1,0 +1,36 @@
+{
+  "contactos": [
+    {
+      "id": "1d3f",
+      "nombre": "Gustavo Adolfo Bolaños Dorado",
+      "telefono": "3217532037",
+      "correo": "gabodorado@gmail.com",
+      "etiqueta": "profe"
+    },
+    {
+      "id": "8e7b",
+      "nombre": "andresss",
+      "telefono": "3126549870",
+      "correo": "andreaguti@sena.edu.co",
+      "etiqueta": "Aprendiz",
+      "empresa": "SENA"
+    },
+    {
+      "id": "2718",
+      "nombre": "jacinto",
+      "telefono": "1234567890",
+      "correo": "jacinto@gmail.com",
+      "etiqueta": "familiar",
+      "empresa": ""
+    },
+    {
+      "id": "bc59",
+      "nombre": "hernesto perez",
+      "telefono": "3126549870",
+      "correo": "andreaq@.sena.edu.co",
+      "etiqueta": "cliente",
+      "empresa": "SENA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
